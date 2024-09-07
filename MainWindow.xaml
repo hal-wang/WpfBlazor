@@ -9,12 +9,22 @@
     Title="MainWindow"
     Width="1000"
     Height="600"
+    AllowsTransparency="True"
+    Background="#01000000"
+    WindowStyle="None"
     mc:Ignorable="d">
-    <Grid>
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="32"
+            CornerRadius="0"
+            ResizeBorderThickness="6" />
+    </WindowChrome.WindowChrome>
+
+    <Border Padding="6">
         <blazor:BlazorWebView HostPage="wwwroot\index.html" Services="{DynamicResource services}">
             <blazor:BlazorWebView.RootComponents>
                 <blazor:RootComponent ComponentType="{x:Type local:Routes}" Selector="#app" />
             </blazor:BlazorWebView.RootComponents>
         </blazor:BlazorWebView>
-    </Grid>
+    </Border>
 </Window>
