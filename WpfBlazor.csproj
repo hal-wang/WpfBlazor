@@ -12,6 +12,9 @@
 	<ItemGroup>
 		<PackageReference Include="H.Tools.Wpf" Version="0.0.27" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="8.0.82" />
+		<PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.10.0" />
+		<PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Emoji" Version="4.6.0" />
+		<PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.10.0" />
 		<PackageReference Include="MouseKeyHook" Version="5.7.1" />
 	</ItemGroup>
 

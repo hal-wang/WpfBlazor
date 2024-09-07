@@ -1,6 +1,12 @@
-﻿@inject IJSRuntime jsRuntime
+﻿@inject IToastService ToastService
 
 @inherits LayoutComponentBase
+
+<FluentToastProvider />
+<FluentDialogProvider />
+<FluentTooltipProvider />
+<FluentMessageBarProvider />
+<FluentMenuProvider />
 
 <main class="flex flex-col bg-white w-full h-full">
     <div class="h-8 bg-blue flex" @onmousedown="OnHeaderMouseDown">
@@ -8,7 +14,7 @@
             <div class="font-bold flex items-center pl-6 flex-1 w-0">
                 WpfBlazor
             </div>
-            <button class="self-center mr-4" @onmousedown:stopPropagation onclick="@(()=>Test())">Test</button>
+            <FluentButton Appearance="Appearance.Accent" class="self-center mr-4" @onmousedown:stopPropagation OnClick="@Test">Test</FluentButton>
         </div>
         <div class="window-commands flex items-start self-start" @onmousedown:stopPropagation>
             <button onclick="@(()=>MinSize())">

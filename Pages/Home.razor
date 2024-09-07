@@ -1,5 +1,11 @@
-﻿@page "/"
+﻿@inject IToastService ToastService
+
+@page "/"
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<div class="pl-4 pt-4">
+    <FluentButton Appearance="Appearance.Accent" @onmousedown:stopPropagation OnClick="@(()=>ToastService.ShowSuccess("Test"))">Test</FluentButton>
+</div>

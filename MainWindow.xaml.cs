@@ -1,5 +1,6 @@
 ﻿using H.Tools.Wpf;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.FluentUI.AspNetCore.Components;
 using System.Windows;
 
 namespace WpfBlazor;
@@ -15,7 +16,11 @@ public partial class MainWindow : Window
 
         var serviceCollection = new ServiceCollection()
             .AddBlazorWebViewDeveloperTools()
-            .AddLogging();
+            .AddLogging()
+            .AddFluentUIComponents(options =>
+            {
+                options.ValidateClassNames = false;
+            });
         serviceCollection.AddWpfBlazorWebView();
         Resources.Add("services", serviceCollection.BuildServiceProvider());
     }

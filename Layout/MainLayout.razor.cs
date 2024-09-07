@@ -1,5 +1,7 @@
 ﻿using Gma.System.MouseKeyHook;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.FluentUI.AspNetCore.Components;
+using System.Diagnostics.Metrics;
 using System.Windows;
 using WpfBlazor.Extends;
 
@@ -77,8 +79,8 @@ public partial class MainLayout
         hook.MouseMove += OnHeaderMouseMove;
     }
 
-    private async void Test()
+    private void Test()
     {
-        await jsRuntime.InvokeFunctionVoidAsync("()=>alert('test')");
+        ToastService.ShowSuccess("Test");
     }
 }
