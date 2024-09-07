@@ -12,6 +12,7 @@
 	<ItemGroup>
 		<PackageReference Include="H.Tools.Wpf" Version="0.0.27" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="8.0.82" />
+		<PackageReference Include="MouseKeyHook" Version="5.7.1" />
 	</ItemGroup>
 
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">

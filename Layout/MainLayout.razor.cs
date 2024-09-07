@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using Gma.System.MouseKeyHook;
+using Microsoft.AspNetCore.Components.Web;
+using System.Windows;
+using WpfBlazor.Extends;
 
 namespace WpfBlazor.Layout;
 
@@ -45,5 +48,37 @@ public partial class MainLayout
         if (window == null) return;
 
         window.WindowState = WindowState.Minimized;
+    }
+
+    private void OnHeaderMouseDown(MouseEventArgs args)
+    {
+        var window = Application.Current?.MainWindow;
+        if (window == null) return;
+
+        var hook = Hook.GlobalEvents();
+        var startPoint = System.Windows.Forms.Control.MousePosition;
+        var startPosition = new Point(window.Left, window.Top);
+
+        void OnHeaderMouseUp(object? sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            hook.MouseUp -= OnHeaderMouseUp;
+            hook.MouseMove -= OnHeaderMouseMove;
+
+            hook.Dispose();
+        }
+        void OnHeaderMouseMove(object? sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            var point = System.Windows.Forms.Control.MousePosition;
+            window.Left = startPosition.X + (point.X - startPoint.X);
+            window.Top = startPosition.Y + (point.Y - startPoint.Y);
+        }
+
+        hook.MouseUp += OnHeaderMouseUp;
+        hook.MouseMove += OnHeaderMouseMove;
+    }
+
+    private async void Test()
+    {
+        await jsRuntime.InvokeFunctionVoidAsync("()=>alert('test')");
     }
 }
