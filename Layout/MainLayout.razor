@@ -3,14 +3,14 @@
 @inherits LayoutComponentBase
 
 <main class="flex flex-col bg-white w-full h-full">
-    <div class="h-10 bg-blue flex" @onmousedown="OnHeaderMouseDown">
+    <div class="h-8 bg-blue flex" @onmousedown="OnHeaderMouseDown">
         <div class="flex-1 w-0 font-bold flex">
             <div class="font-bold flex items-center pl-6 flex-1 w-0">
                 WpfBlazor
             </div>
             <button class="self-center mr-4" @onmousedown:stopPropagation onclick="@(()=>Test())">Test</button>
         </div>
-        <div class="window-commands flex items-start self-start">
+        <div class="window-commands flex items-start self-start" @onmousedown:stopPropagation>
             <button onclick="@(()=>MinSize())">
                 <svg t="1725699325480" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5510"><path d="M74.752 480.256h874.496c21.504 0 31.744 10.752 32.256 32.256 0 21.504-10.752 32.256-32.256 32.256H74.752c-21.504 0-32.256-10.752-32.256-32.256 0-22.016 10.752-32.256 32.256-32.256z" p-id="5511"></path></svg>
             </button>
